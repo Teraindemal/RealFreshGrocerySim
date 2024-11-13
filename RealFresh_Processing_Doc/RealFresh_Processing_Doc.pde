@@ -6,3 +6,7 @@ void setup(){
  mycalculuscompetitionrecord = 89;
  println(mycalculuscompetitionrecord);
 }
+
+void draw(){
+ background(196, 164, 132); 
+}
