@@ -5,6 +5,15 @@ Class Product{
   Boolean vegan, vegetarian, halal, gluten, bluecow; 
   int expiryMonth, expiryDay;
 
-  Product(
+  Product(n, p, c, Na, s, pro, c, f){
+    this.name = n;
+    this.price = p;
+    this.calories = c;
+    this.sodium = Na;
+    this.sugar = s;
+    this.protein = pro;
+    this.carbs = c;
+    this.fat = f;
+  }
   
-  {
+}
