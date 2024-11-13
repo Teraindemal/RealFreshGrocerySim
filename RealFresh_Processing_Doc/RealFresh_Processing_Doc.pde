@@ -4,4 +4,8 @@ void setup(){
  ringsthatareonthecatinthehatshat = 10; 
  println(ringsthatareonthecatinthehatshat);
  
+ 
+ int mycalculuscompetitionrecord;
+ mycalculuscompetitionrecord = 89;
+ println(mycalculuscompetitionrecord);
 }
