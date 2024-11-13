@@ -17,5 +17,15 @@ class Product {
     this.expiryMonth = eM;
     this.expiryDay = eD;
   }
-  
+  void describe(){
+    println(this.name + ":");
+    println("$" + this.price);
+    println(this.calories+"g", "of calories");
+    println(this.sodium+"g", "of sodium");
+    println(this.sugar+"g", "of sugar");
+    println(this.protein+"g", "of protein");
+    println(this.carbs+"g", "of carbs");
+    println(this.fat+"g", "of fat");
+    println("experation date:", this.expiryMonth+"/"+this.expiryDay);
+  }
 }
