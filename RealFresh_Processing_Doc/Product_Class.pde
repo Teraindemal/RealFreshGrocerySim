@@ -26,6 +26,6 @@ class Product {
     println(this.protein+"g", "of protein");
     println(this.carbs+"g", "of carbs");
     println(this.fat+"g", "of fat");
-    println("experation date:", this.expiryMonth+"/"+this.expiryDay);
+    println("expiration date:", this.expiryMonth+"/"+this.expiryDay);
   }
 }
