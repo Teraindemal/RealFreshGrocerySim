@@ -1,12 +1,17 @@
 class Produce extends Product{
-  float expired;
-  Produce(String n, float p, float cal, float Na, float s, float pro, float c, float f, float e){
+  int rottenDay, rottenMonth, rottenYear;
+  int amt;
+  Produce(String n, float p, float cal, float Na, float s, float pro, float c, float f, int rD, int rM, int rY, int a){
     super( n, p, cal, Na, s, pro, c, f);
-    this.expired = e;
+    this.rottenDay = rD;
+    this.rottenMonth = rM;
+    this.rottenYear = rY;
+    this.amt = a;
   }
   void describe(){
    super.describe();
-   println("expiration date:", this.expired);
+   println(this.amt, this.name, "a bag");
+   println("rots date:", this.rottenDay+"/"+this.rottenMonth+"/"+this.rottenYear);
    println();
   }
 }

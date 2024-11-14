@@ -1,17 +1,19 @@
 class Baked extends Product {
-  float bestBefore;  
+  int bestBeforeDay, bestBeforeMonth, bestBeforeYear;  
 
   
-  Baked(String n, float p, float cal, float Na, float s, float pro, float c, float f, float BB) {
+  Baked(String n, float p, float cal, float Na, float s, float pro, float c, float f, int BBD, int BBM, int BBY) {
     
     super(n, p, cal, Na, s, pro, c, f);  
-    this.bestBefore = BB; 
+    this.bestBeforeDay = BBD; 
+    this.bestBeforeMonth = BBM;
+    this.bestBeforeYear = BBY;
   }
 
   void describe() {
     super.describe(); 
     
-    println("Best before: " + this.bestBefore);  
+    println("Best before:" + this.bestBeforeDay+"/"+this.bestBeforeMonth+"/"+this.bestBeforeYear);  
     println();
   }
 }
