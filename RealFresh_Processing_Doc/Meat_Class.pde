@@ -1,6 +1,12 @@
 class Meat extends Product{
-  Meat(String n, float p, float cal, float Na, float s, float pro, float c, float f, int eM, int eD){
-    super( n, p, cal, Na, s, pro, c, f, eM, eD );
+  float expired;
+  Meat(String n, float p, float cal, float Na, float s, float pro, float c, float f, float e){
+    super( n, p, cal, Na, s, pro, c, f);
+    this.expired = e;
   }
-  
+  void describe(){
+   super.describe();
+   println("expiration date:", this.expired);
+   println();
+  }
 }
