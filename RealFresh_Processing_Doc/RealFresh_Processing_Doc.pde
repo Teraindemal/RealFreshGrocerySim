@@ -15,7 +15,7 @@ Produce[] producesection = new Produce[4];
 
 void setup(){
  size(1000,1000); 
- 
+ //name, calories, sodium, sugar, protein, carbs, fat, expire:day,month,year
 Dairy milk = new Dairy("milk", 3.99, 500, 20, 4, 2, 3, 4, 6,18,24);  
 milk.describe();
 Baked bread = new Baked("bread", 3.99, 500, 20, 4, 2, 3, 4, 12,06,25);

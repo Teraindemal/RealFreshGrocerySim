@@ -9,6 +9,7 @@ class Meat extends Product{
     this.weight = w;
   }
   void describe(){
+   println("MEAT CATEGORY");
    super.describe();
    println("weight:", this.weight+"lbs");
    println("rots date:", this.rottenDay+"/"+this.rottenMonth+"/"+this.rottenYear);
