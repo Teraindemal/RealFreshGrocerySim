@@ -1,0 +1,5 @@
+Packaged(String n, float p, float cal, float Na, float s, float pro, float c, float f, int eD, int eM, int eY){
+
+"Cereal", 6.79, 379, 2, 5, 10, 68, 7, 25, 12, 24 
+"Crackers", 5.99, 504, 20, 7, 7, 61, 26, 31, 12, 24 
+"Spam", 9.00, 140, 20, 7, 7, 61, 26, 31, 12, 24 
