@@ -1,3 +1,6 @@
+import g4p_controls.*;
+
+
 int calorieBenchmark = 400;
 float sodiumBenchmark = 0.4;
 int sugarBenchmark = 20;
@@ -132,6 +135,9 @@ void listAllProducts(){
 }
 
 void draw(){
- background(196, 164, 132);
+ background(196, 225, 132);
  
+rect(100, 0, 200, 1000);
+rect(600, 0, 200, 1000);
+fill(128);
 }
