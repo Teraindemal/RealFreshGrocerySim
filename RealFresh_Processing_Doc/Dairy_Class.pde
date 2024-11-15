@@ -9,7 +9,8 @@ class Dairy extends Product {
     
   }
   void describe(){
-   super.describe();
+    println("DAIRY PRODUCTS");
+    super.describe();
    println("spoiled date:", this.spoiledDay+"/"+this.spoiledMonth+"/"+this.spoiledYear);
    println();
   }

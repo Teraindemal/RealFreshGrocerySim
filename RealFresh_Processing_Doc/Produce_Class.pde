@@ -9,6 +9,7 @@ class Produce extends Product{
     this.amt = a;
   }
   void describe(){
+    println("PRODUCE");
    super.describe();
    println(this.amt, this.name, "a pack");
    println("rots date:", this.rottenDay+"/"+this.rottenMonth+"/"+this.rottenYear);
