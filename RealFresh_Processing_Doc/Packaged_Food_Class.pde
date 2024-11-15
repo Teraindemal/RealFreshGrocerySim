@@ -9,7 +9,6 @@ class Packaged extends Product{
   void describe(){
    println("PACKAGED FOODS");
    super.describe();
-   println("PACKAGED FOODS");
    println("expiration date:", this.expiredDay+"/"+this.expiredMonth+"/"+this.expiredYear);
    println();
     
