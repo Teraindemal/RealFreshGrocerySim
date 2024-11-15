@@ -2,7 +2,7 @@ class Product {
   String name;
   float price;
   float calories, sodium, sugar, protein, carbs, fat;
-  Boolean vegan, vegetarian, halal, gluten, bluecow; 
+  Boolean vegan, vegetarian, gluten, bluecow; 
 
   Product(String n, float p, float cal, float Na, float s, float pro, float c, float f){
     this.name = n;
