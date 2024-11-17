@@ -8,10 +8,11 @@ class Meat extends Product{
     this.rottenYear = rY;
     this.weight = w;
   }
+  
   void describe(){
-   println("MEAT CATEGORY");
+   println("MEATS:");
    super.describe();
-   println("weight:", this.weight+"lbs");
+   println("weight:", this.weight+"g");
    println("rots date:", this.rottenDay+"/"+this.rottenMonth+"/"+this.rottenYear);
    println();
   }

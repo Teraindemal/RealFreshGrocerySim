@@ -11,7 +11,7 @@ class Baked extends Product {
   }
 
   void describe() {
-    println("BACKED GOODS CATEGORY");
+    println("BAKED GOODS:");
     super.describe(); 
     println("Best before:" + this.bestBeforeDay+"/"+this.bestBeforeMonth+"/"+this.bestBeforeYear);  
     println();

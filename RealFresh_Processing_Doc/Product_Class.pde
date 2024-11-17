@@ -19,8 +19,8 @@ class Product {
   void describe(){
     println(this.name + ":");
     println("$" + this.price);
-    println(this.calories+"g", "of calories");
-    println(this.sodium+"g", "of sodium");
+    println(this.calories, "calories");
+    println(this.sodium+"mg", "of sodium");
     println(this.sugar+"g", "of sugar");
     println(this.protein+"g", "of protein");
     println(this.carbs+"g", "of carbs");

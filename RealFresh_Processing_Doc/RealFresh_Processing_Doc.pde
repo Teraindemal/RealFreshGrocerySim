@@ -2,7 +2,7 @@ import g4p_controls.*;
 
 
 int calorieBenchmark = 400;
-float sodiumBenchmark = 0.4;
+int sodiumBenchmark = 400;
 int sugarBenchmark = 20;
 int proteinBenchmark = 20;
 int carbsBenchmark = 20;
@@ -92,7 +92,13 @@ void listAllProducts(){
 
 void draw(){
  background(196, 225, 132);
- rect(100, 0, 200, 1000);
- rect(600, 0, 200, 1000);
  fill(128);
+ rect(100, 0, 200, 1000);
+ rect(700, 0, 200, 1000);
+ text(calorieBenchmark, 500, 100);
+ text(sodiumBenchmark, 500, 200);
+ text(sugarBenchmark, 500, 300);
+ text(proteinBenchmark, 500, 400);
+ text(carbsBenchmark, 500, 500);
+ text(fatBenchmark, 500, 600);
 }
