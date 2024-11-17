@@ -110,11 +110,11 @@ public void createGUI(){
   label3.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label3.setText("g Sugar (Max)");
   label3.setOpaque(false);
-  label4 = new GLabel(window1, 296, 144, 107, 20);
+  label4 = new GLabel(window1, 291, 144, 116, 20);
   label4.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label4.setText("g Protein (Min)");
   label4.setOpaque(false);
-  label5 = new GLabel(window1, 311, 210, 80, 20);
+  label5 = new GLabel(window1, 300, 210, 93, 20);
   label5.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label5.setText("g Carbs (Max)");
   label5.setOpaque(false);

@@ -2,7 +2,7 @@ import g4p_controls.*;
 
 
 int calorieBenchmark = 400;
-float sodiumBenchmark = 0.4;
+int sodiumBenchmark = 400;
 int sugarBenchmark = 20;
 int proteinBenchmark = 20;
 int carbsBenchmark = 20;
