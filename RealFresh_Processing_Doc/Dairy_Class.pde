@@ -9,14 +9,14 @@ class Dairy extends Product {
     
   }
   
-   Dairy(Array){
+  // Dairy(Array){
      
-    super(n, p, cal, Na, s, pro, c, f);
-    this.spoiledDay = Array[1];
-    this.spoiledMonth = sM;
-    this.spoiledYear = sY;
+  //  super(n, p, cal, Na, s, pro, c, f);
+  //  this.spoiledDay = Array[1];
+  //  this.spoiledMonth = sM;
+  //  this.spoiledYear = sY;
     
-  }
+  //}
   void describe(){
     println("DAIRY PRODUCTS");
     super.describe();

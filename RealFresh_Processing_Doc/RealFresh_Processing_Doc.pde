@@ -8,106 +8,66 @@ int proteinBenchmark = 20;
 int carbsBenchmark = 20;
 int fatBenchmark = 8;
 
-
-Dairy[] dairysection = new Dairy[4];
-Baked[] bakedsection = new Baked[4];
-Meat[] meatsection = new Meat[4];
-Packaged[] packagedsection = new Packaged[4];
-Produce[] producesection = new Produce[6];
-
+ArrayList<Product> products = new ArrayList<Product>();
 
 void setup(){
-  Dairy[] dairyitems = loadStrings("Dairy Products.txt");
-  for(int i = 0; i < dairyitems.length; i++ ) {
-    String[] iteminfo = dairyitems[i].split(",");
-    String name = iteminfo[0];
-    float price = iteminfo[1];
-    float calories = iteminfo[2];
-    float sodium = iteminfo[3];
-    float sugar = iteminfo[4];
-    float protein = iteminfo[5];
-    float carbs = iteminfo[6];
-    float fat = iteminfo[7];
-    int day = iteminfo[8];
-    int month = iteminfo[9];
-    int year = iteminfo[10];
-  }
-  String[] bakeditems = loadStrings("Baked Products.txt");
-  for(int i = 0; i < bakeditems.length; i++ ) {
-    String[] iteminfo = bakeditems[i].split(",");
-    String name = iteminfo[0];
-    float price = iteminfo[1];
-    float calories = iteminfo[2];
-    float sodium = iteminfo[3];
-    float sugar = iteminfo[4];
-    float protein = iteminfo[5];
-    float carbs = iteminfo[6];
-    float fat = iteminfo[7];
-    int day = iteminfo[8];
-    int month = iteminfo[9];
-    int year = iteminfo[10];
-    int weight = iteminfo[11];
-  }
-  String[] meatitems = loadStrings("Meat Products.txt");
-  for(int i = 0; i < myOlympicData.length; i++ ) {
-    String[] iteminfo = meatitems[i].split(",");
-    String name = iteminfo[0];
-    float price = iteminfo[1];
-    float calories = iteminfo[2];
-    float sodium = iteminfo[3];
-    float sugar = iteminfo[4];
-    float protein = iteminfo[5];
-    float carbs = iteminfo[6];
-    float fat = iteminfo[7];
-    int day = iteminfo[8];
-    int month = iteminfo[9];
-    int year = iteminfo[10];
-    int weight = iteminfo[11];
-  }
-  String[] packageditems = loadStrings("Packaged Products.txt");
-  for(int i = 0; i < myOlympicData.length; i++ ) {
-    String[] iteminfo = packageditems[i].split(",");
-    String name = iteminfo[0];
-    float price = iteminfo[1];
-    float calories = iteminfo[2];
-    float sodium = iteminfo[3];
-    float sugar = iteminfo[4];
-    float protein = iteminfo[5];
-    float carbs = iteminfo[6];
-    float fat = iteminfo[7];
-    int day = iteminfo[8];
-    int month = iteminfo[9];
-    int year = iteminfo[10];
-  }
-  String[] produceitems = loadStrings("Produce Products.txt");
-  for(int i = 0; i < produceitems.length; i++ ) {
-    String[] iteminfo = produceitems[i].split(",");
-    String name = iteminfo[0];
-    float price = iteminfo[1];
-    float calories = iteminfo[2];
-    float sodium = iteminfo[3];
-    float sugar = iteminfo[4];
-    float protein = iteminfo[5];
-    float carbs = iteminfo[6];
-    float fat = iteminfo[7];
-    int day = iteminfo[8];
-    int month = iteminfo[9];
-    int year = iteminfo[10];
-    int weight = iteminfo[11];
-  }
-   size(1000,1000); 
- //name, calories, sodium, sugar, protein, carbs, fat, expire:day,month,year
+  size(1000,1000);
+  //Load Dairy Products
+  loadProducts("Dairy Products.txt", products);
+  
+  //Load Baked Products
+  loadProducts("Baked Products.txt", products);
+  
+  //Load Meat Products
+  loadProducts("Meat Products.txt", products);
+  
+  //Load Packaged Products
+  loadProducts("Packaged Products.txt", products);
+  
+  //Load Produce Products
+  loadProducts("Produce Products.txt", products);
 
-Baked bread = new Baked("bread", 3.99, 500, 20, 4, 2, 3, 4, 12,06,25);
-bread.describe();
-Meat chicken = new Meat("chicken", 12.99, 700, 10, 50, 20, 7, 6, 8, 9,13,24);
-chicken.describe();
-Packaged spam = new Packaged("Spam", 8.99, 100, 4, 12, 16, 3, 10, 11,31,27);
-spam.describe();
-Produce apple = new Produce("apple", 5.99, 75, 1, 2, 4, 5, 2, 6, 3,8,24);
-apple.describe();
+  for(Product product : products){
+    product.describe();
+  }
 }
-void filterthis(Product[] category){
+
+void loadProducts(String fileName, ArrayList<Product> products){
+  String[] items = loadStrings(fileName);
+  for(int i = 0; i < items.length; i++ ) {
+      String[] iteminfo = items[i].split(",");
+      String name = iteminfo[0];
+      float price = float(iteminfo[1]);
+      float calories = float(iteminfo[2]);
+      float sodium = float(iteminfo[3]);
+      float sugar = float(iteminfo[4]);
+      float protein = float(iteminfo[5]);
+      float carbs = float(iteminfo[6]);
+      float fat = float(iteminfo[7]);
+      int day = int(iteminfo[8]);
+      int month = int(iteminfo[9]);
+      int year = int(iteminfo[10]);
+      int weight = 0;
+      if(fileName == "Meat Products.txt") {
+        weight = int(iteminfo[11]);
+      }
+      Product product = null;
+      if(fileName == "Dairy Products.txt") {
+        product = new Dairy(name, price, calories, sodium, sugar, protein, carbs, fat, day, month, year);
+      } else if (fileName == "Baked Products.txt") {
+        product = new Baked(name, price, calories, sodium, sugar, protein, carbs, fat, day, month, year);
+      } else if (fileName == "Meat Products.txt") {
+        product = new Meat(name, price, calories, sodium, sugar, protein, carbs, fat, day, month, year, weight);
+      } else if (fileName == "Packaged Products.txt") {
+        product = new Packaged(name, price, calories, sodium, sugar, protein, carbs, fat, day, month, year);
+      } else if (fileName == "Produce Products.txt") {
+        product = new Produce(name, price, calories, sodium, sugar, protein, carbs, fat, day, month, year, weight);
+      }
+      products.add(product);
+  }
+}
+
+void filterthis(ArrayList<Product> category){
   for(Product p : category){
     if(p.calories < calorieBenchmark){
       if(p.sodium < sodiumBenchmark){
@@ -127,17 +87,12 @@ void filterthis(Product[] category){
 
 
 void listAllProducts(){
-  filterthis(dairysection);
-  filterthis(bakedsection);
-  filterthis(meatsection);
-  filterthis(packagedsection);
-  filterthis(producesection);
+  filterthis(products);
 }
 
 void draw(){
  background(196, 225, 132);
- 
-rect(100, 0, 200, 1000);
-rect(600, 0, 200, 1000);
-fill(128);
+ rect(100, 0, 200, 1000);
+ rect(600, 0, 200, 1000);
+ fill(128);
 }
