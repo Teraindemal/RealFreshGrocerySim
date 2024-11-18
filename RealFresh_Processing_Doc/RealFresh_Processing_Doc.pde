@@ -99,6 +99,7 @@ void draw(){
  fill(128);
  rect(100, 0, 200, 1000);
  rect(700, 0, 200, 1000);
+ fill(0);
  text(calorieBenchmark, 500, 100);
  text(sodiumBenchmark, 500, 200);
  text(sugarBenchmark, 500, 300);
