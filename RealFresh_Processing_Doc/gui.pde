@@ -58,7 +58,7 @@ public void createGUI(){
   calorieBenchmarkSlider = new GCustomSlider(window1, 32, 144, 157, 63, "grey_blue");
   calorieBenchmarkSlider.setShowValue(true);
   calorieBenchmarkSlider.setShowLimits(true);
-  calorieBenchmarkSlider.setLimits(500, 0, 1000);
+  calorieBenchmarkSlider.setLimits(400, 0, 1000);
   calorieBenchmarkSlider.setNbrTicks(11);
   calorieBenchmarkSlider.setNumberFormat(G4P.INTEGER, 0);
   calorieBenchmarkSlider.setOpaque(false);
@@ -66,7 +66,7 @@ public void createGUI(){
   Sodium = new GCustomSlider(window1, 271, 43, 162, 40, "grey_blue");
   Sodium.setShowValue(true);
   Sodium.setShowLimits(true);
-  Sodium.setLimits(1, 0, 800);
+  Sodium.setLimits(800, 0, 800);
   Sodium.setNumberFormat(G4P.INTEGER, 0);
   Sodium.setOpaque(false);
   Sodium.addEventHandler(this, "custom_slider1_change1");

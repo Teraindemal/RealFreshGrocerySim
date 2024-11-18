@@ -2,15 +2,16 @@ import g4p_controls.*;
 
 
 int calorieBenchmark = 400;
-int sodiumBenchmark = 400;
+int sodiumBenchmark = 800;
 int sugarBenchmark = 20;
-int proteinBenchmark = 20;
-int carbsBenchmark = 20;
-int fatBenchmark = 8;
+int proteinBenchmark = 0;
+int carbsBenchmark = 100;
+int fatBenchmark = 10;
 
 ArrayList<Product> products = new ArrayList<Product>();
 
 void setup(){
+  createGUI();
   size(1000,1000);
   //Load Dairy Products
   loadProducts("Dairy Products.txt", products);
@@ -27,9 +28,12 @@ void setup(){
   //Load Produce Products
   loadProducts("Produce Products.txt", products);
 
-  for(Product product : products){
-    product.describe();
-  }
+  //for(Product product : products){
+  //  product.describe();
+  //}
+  listAllProducts();
+  
+  
 }
 
 void loadProducts(String fileName, ArrayList<Product> products){
@@ -67,16 +71,14 @@ void loadProducts(String fileName, ArrayList<Product> products){
   }
 }
 
-void filterthis(ArrayList<Product> category){
-  for(Product p : category){
-    if(p.calories < calorieBenchmark){
-      if(p.sodium < sodiumBenchmark){
-        if(p.sugar < sugarBenchmark){
-          if(p.protein < proteinBenchmark){
-            if(p.carbs < carbsBenchmark){
-              if(p.fat < fatBenchmark){
-                p.describe();
-              }
+void filterthis(Product p){
+  if(int(p.calories) <= calorieBenchmark){
+    if(p.sodium <= sodiumBenchmark){
+      if(p.sugar <= sugarBenchmark){
+        if(p.protein >= proteinBenchmark){
+          if(p.carbs <= carbsBenchmark){
+            if(p.fat <= fatBenchmark){
+              println(p.name);
             }
           }
         }
@@ -85,9 +87,11 @@ void filterthis(ArrayList<Product> category){
   }
 }
 
-
 void listAllProducts(){
-  filterthis(products);
+  println("These Products Fit Your Requirements:");
+  for(Product p : products){
+    filterthis(p);
+  }
 }
 
 void draw(){
