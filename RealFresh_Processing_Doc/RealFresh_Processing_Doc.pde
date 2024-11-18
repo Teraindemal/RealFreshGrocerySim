@@ -6,7 +6,7 @@ int sodiumBenchmark = 800;
 int sugarBenchmark = 20;
 int proteinBenchmark = 0;
 int carbsBenchmark = 100;
-int fatBenchmark = 10;
+int fatBenchmark = 30;
 
 ArrayList<Product> products = new ArrayList<Product>();
 

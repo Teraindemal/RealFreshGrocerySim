@@ -98,7 +98,7 @@ public void createGUI(){
   Fat = new GCustomSlider(window1, 270, 286, 167, 59, "grey_blue");
   Fat.setShowValue(true);
   Fat.setShowLimits(true);
-  Fat.setLimits(10, 0, 10);
+  Fat.setLimits(30, 0, 30);
   Fat.setNumberFormat(G4P.INTEGER, 0);
   Fat.setOpaque(false);
   Fat.addEventHandler(this, "custom_slider5_change1");

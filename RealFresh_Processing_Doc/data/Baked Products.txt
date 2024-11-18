@@ -1,4 +1,4 @@
-"bag of white bread", 3.99, 500, 20, 4, 2, 3, 4, 12, 05, 24
-"bag of multigrain bread", 4.99, 300, 20, 4, 2, 3, 4, 11, 28, 24
-"baguette", 2.00, 400, 20, 4, 2, 3, 4, 11, 19, 24
-"bag of plain bagels", 5.00, 500, 20, 4, 3, 2, 5, 12, 08, 24
+"bag of white bread", 3.99, 140, 180, 5, 5, 29, 2, 12,3,25
+"bag of whole wheat bread", 4.99, 190, 320, 3, 8, 36, 3, 20,2,25
+"baguette", 2.00, 170, 400, 0, 6, 33, 1, 2,12,24
+"bag of plain bagels", 5.00, 360, 25, 9, 9, 79, 0, 8,12,24
