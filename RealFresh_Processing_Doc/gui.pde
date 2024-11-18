@@ -42,6 +42,10 @@ public void custom_slider5_change1(GCustomSlider source, GEvent event) { //_CODE
  fatBenchmark = Fat.getValueI();
 } //_CODE_:Fat:352962:
 
+public void refreshfilterclicked(GButton source, GEvent event) { //_CODE_:button1:837442:
+  listAllProducts();
+} //_CODE_:button1:837442:
+
 
 
 // Create all the GUI controls. 
@@ -58,7 +62,7 @@ public void createGUI(){
   calorieBenchmarkSlider = new GCustomSlider(window1, 32, 144, 157, 63, "grey_blue");
   calorieBenchmarkSlider.setShowValue(true);
   calorieBenchmarkSlider.setShowLimits(true);
-  calorieBenchmarkSlider.setLimits(400, 0, 1000);
+  calorieBenchmarkSlider.setLimits(400, 0, 500);
   calorieBenchmarkSlider.setNbrTicks(11);
   calorieBenchmarkSlider.setNumberFormat(G4P.INTEGER, 0);
   calorieBenchmarkSlider.setOpaque(false);
@@ -122,6 +126,9 @@ public void createGUI(){
   label6.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label6.setText("g Fats (Max)");
   label6.setOpaque(false);
+  button1 = new GButton(window1, 47, 246, 124, 63);
+  button1.setText("Refresh Filter");
+  button1.addEventHandler(this, "refreshfilterclicked");
   window1.loop();
 }
 
@@ -140,3 +147,4 @@ GLabel label3;
 GLabel label4; 
 GLabel label5; 
 GLabel label6; 
+GButton button1; 
