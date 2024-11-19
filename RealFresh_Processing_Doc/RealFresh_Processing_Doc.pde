@@ -1,5 +1,5 @@
 import g4p_controls.*;
-PImage bananna, apple, baguette, beef, carrot, cherrios, chicken, eggs, lamb, lettuce, milk, mozCheese, onion, plainBagel, pork, sodaCracker, spam, tomato, whiteBread, wholeWheatBread, yogurt;
+PImage bananna, apple, baguette, beef, carrot, cherrios, chicken, eggs, lamb, lettuce, milk, mozCheese, onion, plainBagel, pork, sodaCracker, spam, tomato, whiteBread, wholeWheatBread, yogurt, shrimp, milkis, turkey, blueCow, doritos, pizza, cake, donut;
 
 int calorieBenchmark = 400;
 int sodiumBenchmark = 800;
@@ -54,6 +54,13 @@ whiteBread = loadImage("white bread.png");
 wholeWheatBread = loadImage("whole wheat bread.png");
 yogurt = loadImage("yogurt.png");
 bananna = loadImage("bananna.png");
+pizza = loadImage("pizza.png");
+milkis = loadImage("MILKIS.png");
+shrimp = loadImage("shrimp.png");
+donut = loadImage("donut.png");
+doritos = loadImage("doritos.png");
+turkey = loadImage("turkey.png");
+cake = loadImage("cake.png");
   
 }
 
