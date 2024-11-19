@@ -9,7 +9,7 @@ String[] imageNames = {
   "soda crackers.png", "Spam.png", "Tomato.png", "white bread.png", 
   "whole wheat bread.png", "yogurt.png", "bananna.png", "pizza.png", 
   "MILKIS.png", "shrimp.png", "donut.png", "doritos.png", "turkey.png", 
-  "cake.png", "Blue Cow.png"
+  "cake.png", "Blue Cow.png", "oreo.png"
 };
 
 int calorieBenchmark = 400;
