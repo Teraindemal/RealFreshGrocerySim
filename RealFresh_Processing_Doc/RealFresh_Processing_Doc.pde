@@ -7,7 +7,7 @@ String[] imageNames = {
   "chicken.png", "eggs.png", "lamb.png", "Lettuce.png", "milk.png", 
   "moz cheese.png", "Onions.png", "plain bagel.png", "pork.png", 
   "soda crackers.png", "Spam.png", "Tomato.png", "white bread.png", 
-  "whole wheat bread.png", "yogurt.png", "bananna.png", "pizza.png", 
+  "whole wheat bread.png", "yogurt.png", "banana.png", "pizza.png", 
   "MILKIS.png", "shrimp.png", "donut.png", "doritos.png", "turkey.png", 
   "cake.png", "Blue Cow.png", "oreo.png"
 };
@@ -20,6 +20,8 @@ int carbsBenchmark = 100;
 int fatBenchmark = 30;
 
 ArrayList<Product> products = new ArrayList<Product>();
+ArrayList<Product> filteredproducts = new ArrayList<Product>(0);
+Product[] shelf = new Product[6];
 
 void setup() {
   createGUI();
@@ -37,8 +39,8 @@ void setup() {
     PImage img = loadImage(imageName);
     productImages.add(img);
   }
-
   listAllProducts();
+
 }
 
 void loadProducts(String fileName, ArrayList<Product> products) {
@@ -46,31 +48,32 @@ void loadProducts(String fileName, ArrayList<Product> products) {
   for (int i = 0; i < items.length; i++) {
     String[] iteminfo = items[i].split(",");
     String name = iteminfo[0];
-    float price = float(iteminfo[1]);
-    float calories = float(iteminfo[2]);
-    float sodium = float(iteminfo[3]);
-    float sugar = float(iteminfo[4]);
-    float protein = float(iteminfo[5]);
-    float carbs = float(iteminfo[6]);
-    float fat = float(iteminfo[7]);
-    int day = int(iteminfo[8]);
-    int month = int(iteminfo[9]);
-    int year = int(iteminfo[10]);
+    String image = iteminfo [1];
+    float price = float(iteminfo[2]);
+    float calories = float(iteminfo[3]);
+    float sodium = float(iteminfo[4]);
+    float sugar = float(iteminfo[5]);
+    float protein = float(iteminfo[6]);
+    float carbs = float(iteminfo[7]);
+    float fat = float(iteminfo[8]);
+    int day = int(iteminfo[9]);
+    int month = int(iteminfo[8]);
+    int year = int(iteminfo[11]);
     int weight = 0;
     if (fileName == "Meat Products.txt") {
       weight = int(iteminfo[11]);
     }
     Product product = null;
     if (fileName == "Dairy Products.txt") {
-      product = new Dairy(name, price, calories, sodium, sugar, protein, carbs, fat, day, month, year);
+      product = new Dairy(name, image, price, calories, sodium, sugar, protein, carbs, fat, day, month, year);
     } else if (fileName == "Baked Products.txt") {
-      product = new Baked(name, price, calories, sodium, sugar, protein, carbs, fat, day, month, year);
+      product = new Baked(name, image, price, calories, sodium, sugar, protein, carbs, fat, day, month, year);
     } else if (fileName == "Meat Products.txt") {
-      product = new Meat(name, price, calories, sodium, sugar, protein, carbs, fat, day, month, year, weight);
+      product = new Meat(name, image, price, calories, sodium, sugar, protein, carbs, fat, day, month, year, weight);
     } else if (fileName == "Packaged Products.txt") {
-      product = new Packaged(name, price, calories, sodium, sugar, protein, carbs, fat, day, month, year);
+      product = new Packaged(name, image, price, calories, sodium, sugar, protein, carbs, fat, day, month, year);
     } else if (fileName == "Produce Products.txt") {
-      product = new Produce(name, price, calories, sodium, sugar, protein, carbs, fat, day, month, year, weight);
+      product = new Produce(name, image, price, calories, sodium, sugar, protein, carbs, fat, day, month, year, weight);
     }
     products.add(product);
   }
@@ -83,7 +86,7 @@ void filterthis(Product p) {
         if (p.protein >= proteinBenchmark) {
           if (p.carbs <= carbsBenchmark) {
             if (p.fat <= fatBenchmark) {
-              println(p.name);
+              filteredproducts.add(p);
             }
           }
         }
@@ -93,10 +96,24 @@ void filterthis(Product p) {
 }
 
 void listAllProducts() {
-  println("These Products Fit Your Requirements:");
+  filteredproducts.clear();
   for (Product p : products) {
     filterthis(p);
   }
+  stockShelves();
+  println("These Products Fit Your Requirements:");
+  for (Product p : filteredproducts) {
+    println(p.name);
+  }
+}
+
+void stockShelves(){
+  shelf[0] = filteredproducts.get(int(random(filteredproducts.size())));
+  shelf[1] = filteredproducts.get(int(random(filteredproducts.size())));
+  shelf[2] = filteredproducts.get(int(random(filteredproducts.size())));
+  shelf[3] = filteredproducts.get(int(random(filteredproducts.size())));
+  shelf[4] = filteredproducts.get(int(random(filteredproducts.size())));
+  shelf[5] = filteredproducts.get(int(random(filteredproducts.size())));
 }
 
 void draw() {
@@ -105,25 +122,26 @@ void draw() {
   rect(100, 0, 200, 1000);
   rect(700, 0, 200, 1000);
   fill(0);
-  text(calorieBenchmark, 500, 100);
-  text(sodiumBenchmark, 500, 200);
-  text(sugarBenchmark, 500, 300);
-  text(proteinBenchmark, 500, 400);
-  text(carbsBenchmark, 500, 500);
-  text(fatBenchmark, 500, 600);
+  text(calorieBenchmark, 500, 10);
+  text(sodiumBenchmark, 500, 20);
+  text(sugarBenchmark, 500, 30);
+  text(proteinBenchmark, 500, 40);
+  text(carbsBenchmark, 500, 50);
+  text(fatBenchmark, 500, 60);
 
- 
-  image(productImages.get(0), 100, 25, 200, 170);  
-  image(productImages.get(3), 100, 225, 200, 200);  
-  image(productImages.get(8), 100, 400, 200, 200);  
+  imageMode(CENTER);
+  //image(shelf[0].image, 200, 100);
+  image(shelf[0].image, 200, 100, 200, 200);  
+  image(shelf[1].image, 200, 300, 200, 200);  
+  image(shelf[2].image, 200, 500, 200, 200);  
 
-  image(productImages.get(11), 700, 300, 200, 200);
-  image(productImages.get(20), 700, 0, 200, 200);    
-  image(productImages.get(16), 700, 150, 200, 200); 
+  image(shelf[3].image, 800, 100, 200, 200);
+  image(shelf[4].image, 800, 300, 200, 200);    
+  image(shelf[5].image, 800, 500, 200, 200); 
 
  
   fill(100, 0, 225);
-  rect(275, 500, 250, 700);
+  rect(275, 500, 250, 90);
   fill(0);
   text("next aisle", 350, 550);
 }

@@ -1,7 +1,7 @@
 class Packaged extends Product{
   int expiredDay, expiredMonth, expiredYear;
-  Packaged(String n, float p, float cal, float Na, float s, float pro, float c, float f, int eD, int eM, int eY){
-    super( n, p, cal, Na, s, pro, c, f);
+  Packaged(String n, String i, float p, float cal, float Na, float s, float pro, float c, float f, int eD, int eM, int eY){
+    super( n, i, p, cal, Na, s, pro, c, f);
     this.expiredDay = eD;
     this.expiredMonth = eM;
     this.expiredYear = eY;

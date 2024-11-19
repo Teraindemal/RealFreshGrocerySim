@@ -2,10 +2,12 @@ class Product {
   String name;
   float price;
   float calories, sodium, sugar, protein, carbs, fat; 
+  PImage image;
   //calories:low:40,high:400,moderate:100. sugar,protein,carbs: high:20g,low:5g, moderate:10g. Na: low:0.14g,moderate:0.25g,high:0.4g. fat:low:3g,moderate:5g,high:8g
 
-  Product(String n, float p, float cal, float Na, float s, float pro, float c, float f){
+  Product(String n, String i, float p, float cal, float Na, float s, float pro, float c, float f){
     this.name = n;
+    this.image = loadImage(i);
     this.price = p;
     this.calories = cal;
     this.sodium = Na;

@@ -1,8 +1,8 @@
 class Produce extends Product{
   int rottenDay, rottenMonth, rottenYear;
   int amt;
-  Produce(String n, float p, float cal, float Na, float s, float pro, float c, float f, int rD, int rM, int rY, int a){
-    super( n, p, cal, Na, s, pro, c, f);
+  Produce(String n, String  i, float p, float cal, float Na, float s, float pro, float c, float f, int rD, int rM, int rY, int a){
+    super( n, i, p, cal, Na, s, pro, c, f);
     this.rottenDay = rD;
     this.rottenMonth = rM;
     this.rottenYear = rY;

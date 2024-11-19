@@ -1,6 +1,6 @@
-"Bag of White Bread", 3.99, 140, 180, 5, 5, 29, 2, 12,3,25
-"Bag of Whole Wheat Bread", 4.99, 190, 320, 3, 8, 36, 3, 20,2,25
-"Baguette", 2.00, 170, 400, 0, 6, 33, 1, 2,12,24
-"Bag of Plain Bagels", 5.00, 360, 25, 9, 9, 79, 0, 8,12,24
-"Cake", 12.50, 373, 344, 50, 3, 59, 15, 11, 1, 25
-"Donuts", 8.99, 269, 290, 16, 4, 37, 11, 2, 1, 25 
+"Bag of White Bread",white bread.png, 3.99, 140, 180, 5, 5, 29, 2, 12,3,25
+"Bag of Whole Wheat Bread",whole wheat bread.png, 4.99, 190, 320, 3, 8, 36, 3, 20,2,25
+"Baguette",baguette.png, 2.00, 170, 400, 0, 6, 33, 1, 2,12,24
+"Bag of Plain Bagels",plain bagel.png, 5.00, 360, 25, 9, 9, 79, 0, 8,12,24
+"Cake",cake.png, 12.50, 373, 344, 50, 3, 59, 15, 11, 1, 25
+"Donuts",donut.png, 8.99, 269, 290, 16, 4, 37, 11, 2, 1, 25 
