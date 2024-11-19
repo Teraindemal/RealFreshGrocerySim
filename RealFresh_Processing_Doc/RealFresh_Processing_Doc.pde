@@ -14,7 +14,7 @@ String[] imageNames = {
 
 int calorieBenchmark = 400;
 int sodiumBenchmark = 800;
-int sugarBenchmark = 20;
+int sugarBenchmark = 60;
 int proteinBenchmark = 0;
 int carbsBenchmark = 100;
 int fatBenchmark = 30;
