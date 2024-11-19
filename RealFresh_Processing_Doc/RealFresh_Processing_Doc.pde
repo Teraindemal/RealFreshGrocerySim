@@ -1,5 +1,5 @@
 import g4p_controls.*;
-PImage apple, baugette, beef, carrot, cherrios, chicken, eggs, lamb, lettuce, milk, mozCheese, onion, plainBagel, pork, sodaCracker, spam, tomato, whiteBread, wholeWheatBread, yogurt;
+PImage apple, baguette, beef, carrot, cherrios, chicken, eggs, lamb, lettuce, milk, mozCheese, onion, plainBagel, pork, sodaCracker, spam, tomato, whiteBread, wholeWheatBread, yogurt;;
 
 int calorieBenchmark = 400;
 int sodiumBenchmark = 800;
@@ -34,7 +34,7 @@ void setup(){
   listAllProducts();
   
 apple = loadImage("apples.png");
-//baguette = loadImage("baguette.png");
+baguette = loadImage("baguette.png");
 beef = loadImage("beef.png");
 carrot = loadImage("Carrots.png");
 cherrios = loadImage("cheerios.png");
@@ -88,7 +88,9 @@ void loadProducts(String fileName, ArrayList<Product> products){
         product = new Produce(name, price, calories, sodium, sugar, protein, carbs, fat, day, month, year, weight);
       }
       products.add(product);
-  }
+  }        
+
+  
 }
 
 void filterthis(Product p){
@@ -114,6 +116,7 @@ void listAllProducts(){
   }
 }
 
+
 void draw(){
  background(196, 225, 132);
  fill(128);
@@ -127,6 +130,6 @@ void draw(){
  text(carbsBenchmark, 500, 500);
  text(fatBenchmark, 500, 600);
  
- 
- image(apple,100,100, 200, 200);
+image(apple,100,100, 200, 200);
+
 }
