@@ -77,7 +77,7 @@ public void createGUI(){
   Sugar = new GCustomSlider(window1, 271, 98, 163, 43, "grey_blue");
   Sugar.setShowValue(true);
   Sugar.setShowLimits(true);
-  Sugar.setLimits(20, 0, 20);
+  Sugar.setLimits(60, 0, 60);
   Sugar.setNumberFormat(G4P.INTEGER, 0);
   Sugar.setOpaque(false);
   Sugar.addEventHandler(this, "custom_slider2_change1");
