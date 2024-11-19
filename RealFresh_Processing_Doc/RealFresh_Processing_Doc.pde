@@ -23,7 +23,7 @@ ArrayList<Product> products = new ArrayList<Product>();
 
 void setup() {
   createGUI();
-  size(1000, 1000);
+  size(1000, 600);
 
   
   loadProducts("Dairy Products.txt", products);
@@ -113,7 +113,7 @@ void draw() {
   text(fatBenchmark, 500, 600);
 
  
-  image(productImages.get(0), 100, 25, 200, 200);  
+  image(productImages.get(0), 100, 25, 200, 170);  
   image(productImages.get(3), 100, 225, 200, 200);  
   image(productImages.get(8), 100, 400, 200, 200);  
 
