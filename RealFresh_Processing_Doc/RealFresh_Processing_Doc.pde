@@ -1,5 +1,5 @@
 import g4p_controls.*;
-
+PImage apple, baugette, beef, carrot, cherrios, chicken, eggs, lamb, lettuce, milk, mozCheese, onion, plainBagel, pork, sodaCracker, spam, tomato, whiteBread, wholeWheatBread, yogurt;
 
 int calorieBenchmark = 400;
 int sodiumBenchmark = 800;
@@ -33,6 +33,26 @@ void setup(){
   //}
   listAllProducts();
   
+apple = loadImage("apples.png");
+//baguette = loadImage("baguette.png");
+beef = loadImage("beef.png");
+carrot = loadImage("Carrots.png");
+cherrios = loadImage("cheerios.png");
+chicken = loadImage("chicken.png");
+eggs = loadImage("eggs.png");
+lamb = loadImage("lamb.png");
+lettuce = loadImage("Lettuce.png");
+milk = loadImage("milk.png");
+mozCheese = loadImage("moz cheese.png");
+onion = loadImage("Onions.png");
+plainBagel = loadImage("plain bagel.png");
+pork = loadImage("pork.png");
+sodaCracker = loadImage("soda crackers.png");
+spam = loadImage("Spam.png");
+tomato = loadImage("Tomato.png");
+whiteBread = loadImage("white bread.png");
+wholeWheatBread = loadImage("whole wheat bread.png");
+yogurt = loadImage("yogurt.png");
   
 }
 
@@ -106,4 +126,7 @@ void draw(){
  text(proteinBenchmark, 500, 400);
  text(carbsBenchmark, 500, 500);
  text(fatBenchmark, 500, 600);
+ 
+ 
+ image(apple,100,100, 200, 200);
 }
