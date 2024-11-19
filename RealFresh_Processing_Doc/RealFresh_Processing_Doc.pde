@@ -1,5 +1,5 @@
 import g4p_controls.*;
-PImage apple, baguette, beef, carrot, cherrios, chicken, eggs, lamb, lettuce, milk, mozCheese, onion, plainBagel, pork, sodaCracker, spam, tomato, whiteBread, wholeWheatBread, yogurt;;
+PImage bananna, apple, baguette, beef, carrot, cherrios, chicken, eggs, lamb, lettuce, milk, mozCheese, onion, plainBagel, pork, sodaCracker, spam, tomato, whiteBread, wholeWheatBread, yogurt;
 
 int calorieBenchmark = 400;
 int sodiumBenchmark = 800;
@@ -53,6 +53,7 @@ tomato = loadImage("Tomato.png");
 whiteBread = loadImage("white bread.png");
 wholeWheatBread = loadImage("whole wheat bread.png");
 yogurt = loadImage("yogurt.png");
+bananna = loadImage("bananna.png");
   
 }
 
@@ -130,6 +131,18 @@ void draw(){
  text(carbsBenchmark, 500, 500);
  text(fatBenchmark, 500, 600);
  
-image(apple,100,100, 200, 200);
+image(apple,100,25, 200, 200);
+image(carrot,100,225,200,200);
+image(lettuce, 100, 400, 200, 200);
 
+
+image(onion,700, 300, 200, 200);
+image(bananna, 700, 0, 200, 200);
+image(tomato, 700, 150, 200, 200);
+
+//next aisle box
+fill(100,0,225);
+rect(275, 500, 250, 700);
+fill(0);
+text("next aisle", 350, 550);
 }
