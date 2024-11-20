@@ -18,7 +18,6 @@ void setup() {
   createGUI();
   size(1000, 600);
 
-  // Initialize click counts for each product to 0  
   loadProducts("Dairy Products.txt", products);
   loadProducts("Baked Products.txt", products);
   loadProducts("Meat Products.txt", products);
