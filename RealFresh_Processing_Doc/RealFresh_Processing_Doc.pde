@@ -108,12 +108,14 @@ void listAllProducts() {
 }
 
 void stockShelves(){
-  shelf[0] = filteredproducts.get(int(random(filteredproducts.size())));
-  shelf[1] = filteredproducts.get(int(random(filteredproducts.size())));
-  shelf[2] = filteredproducts.get(int(random(filteredproducts.size())));
-  shelf[3] = filteredproducts.get(int(random(filteredproducts.size())));
-  shelf[4] = filteredproducts.get(int(random(filteredproducts.size())));
-  shelf[5] = filteredproducts.get(int(random(filteredproducts.size())));
+  if(filteredproducts.size()>=1){
+    shelf[0] = filteredproducts.get(int(random(filteredproducts.size())));
+    shelf[1] = filteredproducts.get(int(random(filteredproducts.size())));
+    shelf[2] = filteredproducts.get(int(random(filteredproducts.size())));
+    shelf[3] = filteredproducts.get(int(random(filteredproducts.size())));
+    shelf[4] = filteredproducts.get(int(random(filteredproducts.size())));
+    shelf[5] = filteredproducts.get(int(random(filteredproducts.size()))); 
+  }
 }
 
 void draw() {
@@ -130,18 +132,12 @@ void draw() {
   text(fatBenchmark, 500, 60);
 
   imageMode(CENTER);
-  //image(shelf[0].image, 200, 100);
-  image(shelf[0].image, 200, 100, 200, 200);  
-  image(shelf[1].image, 200, 300, 200, 200);  
-  image(shelf[2].image, 200, 500, 200, 200);  
-
-  image(shelf[3].image, 800, 100, 200, 200);
-  image(shelf[4].image, 800, 300, 200, 200);    
-  image(shelf[5].image, 800, 500, 200, 200); 
-
- 
-  fill(100, 0, 225);
-  rect(275, 500, 250, 90);
-  fill(0);
-  text("next aisle", 350, 550);
+  if (filteredproducts.size()>=1){
+    image(shelf[0].image, 200, 100, 200, 200);  
+    image(shelf[1].image, 200, 300, 200, 200);  
+    image(shelf[2].image, 200, 500, 200, 200);  
+    image(shelf[3].image, 800, 100, 200, 200);
+    image(shelf[4].image, 800, 300, 200, 200);    
+    image(shelf[5].image, 800, 500, 200, 200);
+  }
 }
