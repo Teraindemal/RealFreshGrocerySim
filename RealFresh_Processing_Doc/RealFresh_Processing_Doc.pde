@@ -1,17 +1,6 @@
 import g4p_controls.*;
 import java.util.ArrayList;
 
-ArrayList<PImage> productImages = new ArrayList<PImage>();
-String[] imageNames = {
-  "apples.png", "baguette.png", "beef.png", "Carrots.png", "cheerios.png", 
-  "chicken.png", "eggs.png", "lamb.png", "Lettuce.png", "milk.png", 
-  "moz cheese.png", "Onions.png", "plain bagel.png", "pork.png", 
-  "soda crackers.png", "Spam.png", "Tomato.png", "white bread.png", 
-  "whole wheat bread.png", "yogurt.png", "banana.png", "pizza.png", 
-  "MILKIS.png", "shrimp.png", "donut.png", "doritos.png", "turkey.png", 
-  "cake.png", "Blue Cow.png", "oreo.png"
-};
-
 int calorieBenchmark = 400;
 int sodiumBenchmark = 800;
 int sugarBenchmark = 60;
@@ -22,26 +11,20 @@ int fatBenchmark = 30;
 ArrayList<Product> products = new ArrayList<Product>();
 ArrayList<Product> filteredproducts = new ArrayList<Product>(0);
 Product[] shelf = new Product[6];
+ArrayList<Product> cart = new ArrayList<Product>();
 
 
 void setup() {
   createGUI();
   size(1000, 600);
 
-  // Initialize click counts for each product to 0
-
-  
+  // Initialize click counts for each product to 0  
   loadProducts("Dairy Products.txt", products);
   loadProducts("Baked Products.txt", products);
   loadProducts("Meat Products.txt", products);
   loadProducts("Packaged Products.txt", products);
   loadProducts("Produce Products.txt", products);
 
-  
-  for (String imageName : imageNames) {
-    PImage img = loadImage(imageName);
-    productImages.add(img);
-  }
   listAllProducts();
 
 }
@@ -121,6 +104,16 @@ void stockShelves(){
   }
 }
 
+void listCart(){
+  println("Your Cart Contains:");
+  float totalPrice = 0;
+  for(Product p : cart){
+    println(p.name);
+    totalPrice+=p.price;
+  }
+  println("Your total is: $"+totalPrice);
+}
+
 void draw() {
   background(196, 225, 132);
   fill(128);
@@ -135,9 +128,6 @@ void draw() {
   text(fatBenchmark, 500, 60);
 
   imageMode(CENTER);
- 
-
-
  
 
   if (filteredproducts.size()>=1){
