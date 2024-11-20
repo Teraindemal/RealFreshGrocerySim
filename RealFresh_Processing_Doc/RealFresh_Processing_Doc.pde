@@ -23,9 +23,12 @@ ArrayList<Product> products = new ArrayList<Product>();
 ArrayList<Product> filteredproducts = new ArrayList<Product>(0);
 Product[] shelf = new Product[6];
 
+
 void setup() {
   createGUI();
   size(1000, 600);
+
+  // Initialize click counts for each product to 0
 
   
   loadProducts("Dairy Products.txt", products);
@@ -139,9 +142,8 @@ void draw() {
   image(shelf[4].image, 800, 300, 200, 200);    
   image(shelf[5].image, 800, 500, 200, 200); 
 
+
  
-  fill(100, 0, 225);
-  rect(275, 500, 250, 90);
-  fill(0);
-  text("next aisle", 350, 550);
+
+ 
 }
