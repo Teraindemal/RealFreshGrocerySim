@@ -42,9 +42,19 @@ public void custom_slider5_change1(GCustomSlider source, GEvent event) { //_CODE
  fatBenchmark = Fat.getValueI();
 } //_CODE_:Fat:352962:
 
+public void budgetChanged(GTextField source, GEvent event) {
+  if(float(textField.getText())>0){
+    budget = float(textField.getText());
+    budgetset = true;
+  }
+  else{
+    budgetset = false;
+  }
+}
+
 public void refreshfilterclicked(GButton source, GEvent event) { //_CODE_:button1:837442:
-  listAllProducts();
- 
+  refresh();
+  textField.setText("");
 } //_CODE_:button1:837442:
 
 public void button2_click1(GButton source, GEvent event) { //_CODE_:button2:594070:
