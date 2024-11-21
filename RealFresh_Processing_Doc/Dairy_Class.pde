@@ -1,17 +1,11 @@
 class Dairy extends Product {
-  int spoiledDay, spoiledMonth, spoiledYear;
-  
+
   Dairy(String n, String i, float p, float cal, float Na, float s, float pro, float c, float f, int sD, int sM, int sY){
-    super(n, i, p, cal, Na, s, pro, c, f);
-    this.spoiledDay = sD;
-    this.spoiledMonth = sM;
-    this.spoiledYear = sY;
+    super(n, i, p, cal, Na, s, pro, c, f, sD, sM, sY);
   }
   
   void describe(){
-    println("DAIRY AND EGG PRODUCTS:");
+    text(("DAIRY AND EGG PRODUCTS:"), nfxval, nfyval);
     super.describe();
-   println("spoiled date:", this.spoiledDay+"/"+this.spoiledMonth+"/"+this.spoiledYear);
-   println();
   }
 }

@@ -8,6 +8,9 @@ int proteinBenchmark = 0;
 int carbsBenchmark = 100;
 int fatBenchmark = 30;
 float budget = 0;
+Boolean isNutritionShowing = false;
+int nfxval = 320;
+int nfyval = 20;
 
 ArrayList<Product> products = new ArrayList<Product>();
 ArrayList<Product> filteredproducts = new ArrayList<Product>(0);
@@ -32,22 +35,26 @@ void setup() {
 void loadProducts(String fileName, ArrayList<Product> products) {
   String[] items = loadStrings(fileName);
   for (int i = 0; i < items.length; i++) {
-    String[] iteminfo = items[i].split(",");
+    String[] iteminfo = items[i].split(", ");
+    println(iteminfo[0]);
     String name = iteminfo[0];
     String image = iteminfo [1];
+
     float price = float(iteminfo[2]);
+
     float calories = float(iteminfo[3]);
+
     float sodium = float(iteminfo[4]);
     float sugar = float(iteminfo[5]);
     float protein = float(iteminfo[6]);
     float carbs = float(iteminfo[7]);
     float fat = float(iteminfo[8]);
     int day = int(iteminfo[9]);
-    int month = int(iteminfo[8]);
+    int month = int(iteminfo[10]);
     int year = int(iteminfo[11]);
     int weight = 0;
-    if (fileName == "Meat Products.txt") {
-      weight = int(iteminfo[11]);
+    if (fileName == "Meat Products.txt" || fileName == "Produce Products.txt") {
+      weight = int(iteminfo[12]);
     }
     Product product = null;
     if (fileName == "Dairy Products.txt") {
@@ -128,16 +135,9 @@ void draw() {
   fill(128);
   rect(100, 0, 200, 1000);
   rect(700, 0, 200, 1000);
-  fill(0);
-  text(calorieBenchmark, 500, 10);
-  text(sodiumBenchmark, 500, 20);
-  text(sugarBenchmark, 500, 30);
-  text(proteinBenchmark, 500, 40);
-  text(carbsBenchmark, 500, 50);
-  text(fatBenchmark, 500, 60);
+
 
   imageMode(CENTER);
- 
 
   if (filteredproducts.size()>=1){
     image(shelf[0].image, 200, 100, 200, 200);  
@@ -146,6 +146,13 @@ void draw() {
     image(shelf[3].image, 800, 100, 200, 200);
     image(shelf[4].image, 800, 300, 200, 200);    
     image(shelf[5].image, 800, 500, 200, 200);
+  }
+  
+  hovered();
+  if (isNutritionShowing){
+    fill(0);
+    textSize(20);
+    shelf[hoveredShelf].describe();
   }
 
 }
