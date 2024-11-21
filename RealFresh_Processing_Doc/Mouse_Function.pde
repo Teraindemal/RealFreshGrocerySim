@@ -37,6 +37,7 @@ void hovered(){
 
 
 void mousePressed() {  
+  startTime = millis();
   if (isMouseOverImage(200, 100)) {
     selectedShelf = 0;
   } 
@@ -55,6 +56,6 @@ void mousePressed() {
   else if (isMouseOverImage(800, 500)) {
     selectedShelf = 5;
   }
-  cart.add(shelf[selectedShelf]);
+  addProduct();
   listCart();
 }

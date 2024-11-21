@@ -1,6 +1,6 @@
 import g4p_controls.*;
 import java.util.ArrayList;
-
+int startTime;
 int calorieBenchmark = 400;
 int sodiumBenchmark = 800;
 int sugarBenchmark = 60;
@@ -8,9 +8,12 @@ int proteinBenchmark = 0;
 int carbsBenchmark = 100;
 int fatBenchmark = 30;
 float budget = 0;
+float totalPrice = 0;
 Boolean isNutritionShowing = false;
 int nfxval = 320;
 int nfyval = 20;
+Boolean budgetset = false;
+Boolean budgetExceeded = false;
 
 ArrayList<Product> products = new ArrayList<Product>();
 ArrayList<Product> filteredproducts = new ArrayList<Product>(0);
@@ -27,23 +30,17 @@ void setup() {
   loadProducts("Meat Products.txt", products);
   loadProducts("Packaged Products.txt", products);
   loadProducts("Produce Products.txt", products);
-
-  listAllProducts();
-
+  refresh();
 }
 
 void loadProducts(String fileName, ArrayList<Product> products) {
   String[] items = loadStrings(fileName);
   for (int i = 0; i < items.length; i++) {
     String[] iteminfo = items[i].split(", ");
-    println(iteminfo[0]);
     String name = iteminfo[0];
     String image = iteminfo [1];
-
     float price = float(iteminfo[2]);
-
     float calories = float(iteminfo[3]);
-
     float sodium = float(iteminfo[4]);
     float sugar = float(iteminfo[5]);
     float protein = float(iteminfo[6]);
@@ -88,46 +85,42 @@ void filterthis(Product p) {
   }
 }
 
-void listAllProducts() {
+void refresh() {
   filteredproducts.clear();
   for (Product p : products) {
     filterthis(p);
   }
   stockShelves();
-  println("These Products Fit Your Requirements:");
-  for (Product p : filteredproducts) {
-    println(p.name);
-  }
+  //println("These Products Fit Your Requirements:");
+  //for (Product p : filteredproducts) {
+  //  println(p.name);
+  //}
 }
 
 void stockShelves(){
   if(filteredproducts.size()>=1){
-    shelf[0] = filteredproducts.get(int(random(filteredproducts.size())));
-    shelf[1] = filteredproducts.get(int(random(filteredproducts.size())));
-    shelf[2] = filteredproducts.get(int(random(filteredproducts.size())));
-    shelf[3] = filteredproducts.get(int(random(filteredproducts.size())));
-    shelf[4] = filteredproducts.get(int(random(filteredproducts.size())));
-    shelf[5] = filteredproducts.get(int(random(filteredproducts.size()))); 
+    for(int s = 0; s < shelf.length; s++){
+      shelf[s] = filteredproducts.get(int(random(filteredproducts.size())));
+    }
+  }
+}
+void addProduct(){
+  totalPrice+=shelf[selectedShelf].price;
+  if(totalPrice > budget){
+    budgetExceeded = true;
+    totalPrice-=shelf[selectedShelf].price;
+  }
+  else{
+    cart.add(shelf[selectedShelf]);
   }
 }
 
 void listCart(){
   println("Your Cart Contains:");
-  float totalPrice = 0;
-  if(budget == 0) {
-    println("Please enter a budget");
-  } else {
-    for(Product p : cart){
-      println(p.name);
-      totalPrice+=p.price;
-      if(totalPrice > budget){
-        println("The total price: $"+ totalPrice +", is more than the budget: $"+ budget + ", Please select some other product.");
-        totalPrice-=p.price;
-      }
-    }
+  for(Product p : cart){
+    println(p.name);
   }
-  println("Your budget is: $"+budget);
-  println("Your total is: $"+totalPrice);
+  println("Your total is: $"+ nf(totalPrice, 0, 2));
 }
 
 void draw() {
@@ -147,12 +140,26 @@ void draw() {
     image(shelf[4].image, 800, 300, 200, 200);    
     image(shelf[5].image, 800, 500, 200, 200);
   }
+  fill(0);
+  textSize(20);
   
   hovered();
   if (isNutritionShowing){
-    fill(0);
-    textSize(20);
     shelf[hoveredShelf].describe();
+  }
+  if(budgetExceeded){
+    text(("This surpasses your budget of $"+ budget), 320, 500);
+    text(("Please select some other product."), 320, 520);
+    if (millis() - startTime > 2000){
+      budgetExceeded = false;
+    }
+  }
+  if(budgetset){
+    text(("Your budget is: $"+nf(budget, 0, 2)), 320, 400);
+    text(("Your total is: $"+nf(totalPrice, 0, 2)), 320, 420);
+  }
+  else{
+    text(("Please enter a budget"), 320, 400);
   }
 
 }

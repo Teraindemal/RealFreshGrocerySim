@@ -23,8 +23,8 @@ class Product {
   }
   void describe(){
 
-    text((this.name + " Nutrition Facts:"), nfxval, nfyval+20);
-    text(("$" +nf(this.price, 0, 2)), nfxval, nfyval+40);
+    text((this.name + (" $" +nf(this.price, 0, 2))), nfxval, nfyval+20);
+    text("Nutrition Facts:", nfxval, nfyval+40);
     text((int(this.calories)+ " Calories"), nfxval, nfyval+60);
     text((int(this.sodium)+"mg of Sodium"), nfxval, nfyval+80);
     text((int(this.sugar)+"g of Sugar"), nfxval, nfyval+100);

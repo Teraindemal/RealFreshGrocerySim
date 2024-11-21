@@ -43,11 +43,17 @@ public void custom_slider5_change1(GCustomSlider source, GEvent event) { //_CODE
 } //_CODE_:Fat:352962:
 
 public void budgetChanged(GTextField source, GEvent event) {
-  budget = float(textField.getText());
+  if(float(textField.getText())>0){
+    budget = float(textField.getText());
+    budgetset = true;
+  }
+  else{
+    budgetset = false;
+  }
 }
 
 public void refreshfilterclicked(GButton source, GEvent event) { //_CODE_:button1:837442:
-  listAllProducts();
+  refresh();
   textField.setText("");
 } //_CODE_:button1:837442:
 
