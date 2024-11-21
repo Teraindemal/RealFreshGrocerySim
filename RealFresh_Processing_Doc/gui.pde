@@ -42,14 +42,18 @@ public void custom_slider5_change1(GCustomSlider source, GEvent event) { //_CODE
  fatBenchmark = Fat.getValueI();
 } //_CODE_:Fat:352962:
 
-public void budgetChanged(GTextField source, GEvent event) {
-  budget = float(textField.getText());
-}
-
 public void refreshfilterclicked(GButton source, GEvent event) { //_CODE_:button1:837442:
   listAllProducts();
-  textField.setText("");
+ 
 } //_CODE_:button1:837442:
+
+public void button2_click1(GButton source, GEvent event) { //_CODE_:button2:594070:
+  println("button2 - GButton >> GEvent." + event + " @ " + millis());
+} //_CODE_:button2:594070:
+
+synchronized public void win_draw2(PApplet appc, GWinData data) { //_CODE_:window2:650742:
+  appc.background(230);
+} //_CODE_:window2:650742:
 
 
 
@@ -64,9 +68,7 @@ public void createGUI(){
   window1.noLoop();
   window1.setActionOnClose(G4P.KEEP_OPEN);
   window1.addDrawHandler(this, "win_draw1");
-  textField = new GTextField(window1, 78, 74, 60, 20);
-  textField.addEventHandler(this, "budgetChanged");
-  calorieBenchmarkSlider = new GCustomSlider(window1, 32, 144, 157, 63, "grey_blue");
+  calorieBenchmarkSlider = new GCustomSlider(window1, 26, 55, 157, 63, "grey_blue");
   calorieBenchmarkSlider.setShowValue(true);
   calorieBenchmarkSlider.setShowLimits(true);
   calorieBenchmarkSlider.setLimits(400, 0, 500);
@@ -109,10 +111,7 @@ public void createGUI(){
   Fat.setNumberFormat(G4P.INTEGER, 0);
   Fat.setOpaque(false);
   Fat.addEventHandler(this, "custom_slider5_change1");
-  label0 = new GLabel(window1, 61, 44, 93, 38);
-  label0.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  label0.setText("Budget");
-  label1 = new GLabel(window1, 61, 114, 93, 38);
+  label1 = new GLabel(window1, 55, 9, 93, 38);
   label1.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label1.setText("Calories (Max)");
   label1.setOpaque(false);
@@ -136,10 +135,18 @@ public void createGUI(){
   label6.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label6.setText("g Fats (Max)");
   label6.setOpaque(false);
-  button1 = new GButton(window1, 47, 246, 124, 63);
+  button1 = new GButton(window1, 39, 130, 124, 63);
   button1.setText("Refresh Filter");
   button1.addEventHandler(this, "refreshfilterclicked");
+  button2 = new GButton(window1, 33, 210, 139, 30);
+  button2.setText("Proceed to Checkout");
+  button2.addEventHandler(this, "button2_click1");
+  window2 = GWindow.getWindow(this, "Window title", 0, 0, 240, 120, JAVA2D);
+  window2.noLoop();
+  window2.setActionOnClose(G4P.CLOSE_WINDOW);
+  window2.addDrawHandler(this, "win_draw2");
   window1.loop();
+  window2.loop();
 }
 
 // Variable declarations 
@@ -151,7 +158,6 @@ GCustomSlider Sugar;
 GCustomSlider Protein; 
 GCustomSlider Carbs; 
 GCustomSlider Fat; 
-GLabel label0; 
 GLabel label1; 
 GLabel label2; 
 GLabel label3; 
@@ -159,4 +165,5 @@ GLabel label4;
 GLabel label5; 
 GLabel label6; 
 GButton button1; 
-GTextField textField;
+GButton button2; 
+GWindow window2;
