@@ -7,6 +7,7 @@ int sugarBenchmark = 60;
 int proteinBenchmark = 0;
 int carbsBenchmark = 100;
 int fatBenchmark = 30;
+float budget = 0;
 
 ArrayList<Product> products = new ArrayList<Product>();
 ArrayList<Product> filteredproducts = new ArrayList<Product>(0);
@@ -106,10 +107,19 @@ void stockShelves(){
 void listCart(){
   println("Your Cart Contains:");
   float totalPrice = 0;
-  for(Product p : cart){
-    println(p.name);
-    totalPrice+=p.price;
+  if(budget == 0) {
+    println("Please enter a budget");
+  } else {
+    for(Product p : cart){
+      println(p.name);
+      totalPrice+=p.price;
+      if(totalPrice > budget){
+        println("The total price: $"+ totalPrice +", is more than the budget: $"+ budget + ", Please select some other product.");
+        totalPrice-=p.price;
+      }
+    }
   }
+  println("Your budget is: $"+budget);
   println("Your total is: $"+totalPrice);
 }
 

@@ -42,8 +42,13 @@ public void custom_slider5_change1(GCustomSlider source, GEvent event) { //_CODE
  fatBenchmark = Fat.getValueI();
 } //_CODE_:Fat:352962:
 
+public void budgetChanged(GTextField source, GEvent event) {
+  budget = float(textField.getText());
+}
+
 public void refreshfilterclicked(GButton source, GEvent event) { //_CODE_:button1:837442:
   listAllProducts();
+  textField.setText("");
 } //_CODE_:button1:837442:
 
 
@@ -59,6 +64,8 @@ public void createGUI(){
   window1.noLoop();
   window1.setActionOnClose(G4P.KEEP_OPEN);
   window1.addDrawHandler(this, "win_draw1");
+  textField = new GTextField(window1, 78, 74, 60, 20);
+  textField.addEventHandler(this, "budgetChanged");
   calorieBenchmarkSlider = new GCustomSlider(window1, 32, 144, 157, 63, "grey_blue");
   calorieBenchmarkSlider.setShowValue(true);
   calorieBenchmarkSlider.setShowLimits(true);
@@ -102,6 +109,9 @@ public void createGUI(){
   Fat.setNumberFormat(G4P.INTEGER, 0);
   Fat.setOpaque(false);
   Fat.addEventHandler(this, "custom_slider5_change1");
+  label0 = new GLabel(window1, 61, 44, 93, 38);
+  label0.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label0.setText("Budget");
   label1 = new GLabel(window1, 61, 114, 93, 38);
   label1.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label1.setText("Calories (Max)");
@@ -141,6 +151,7 @@ GCustomSlider Sugar;
 GCustomSlider Protein; 
 GCustomSlider Carbs; 
 GCustomSlider Fat; 
+GLabel label0; 
 GLabel label1; 
 GLabel label2; 
 GLabel label3; 
@@ -148,3 +159,4 @@ GLabel label4;
 GLabel label5; 
 GLabel label6; 
 GButton button1; 
+GTextField textField;
