@@ -106,23 +106,25 @@ void stockShelves(){
   }
 }
 void addProduct(){
-  totalPrice+=shelf[selectedShelf].price;
-  if(totalPrice > budget){
-    budgetExceeded = true;
-    totalPrice-=shelf[selectedShelf].price;
-  }
-  else{
-    cart.add(shelf[selectedShelf]);
+  if(hoveredShelf<6){
+    totalPrice+=shelf[selectedShelf].price;
+    if(totalPrice > budget){
+      budgetExceeded = true;
+      totalPrice-=shelf[selectedShelf].price;
+    }
+    else{
+      cart.add(shelf[selectedShelf]);
+    }
   }
 }
 
-void listCart(){
-  println("Your Cart Contains:");
-  for(Product p : cart){
-    println(p.name);
-  }
-  println("Your total is: $"+ nf(totalPrice, 0, 2));
-}
+//void listCart(){
+//  println("Your Cart Contains:");
+//  for(Product p : cart){
+//    println(p.name);
+//  }
+//  println("Your total is: $"+ nf(totalPrice, 0, 2));
+//}
 
 void draw() {
   background(196, 225, 132);
