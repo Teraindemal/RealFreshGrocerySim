@@ -58,7 +58,7 @@ public void delete_last(GButton source, GEvent event) { //_CODE_:delete:226592:
 } //_CODE_:delete:226592:
 
 public void textfield1_change1(GTextField source, GEvent event) { //_CODE_:textfield1:636913:
-  if(float(textfield1.getText())>0 && float(textfield1.getText())<9999999){
+  if(float(textfield1.getText())>0 && float(textfield1.getText())<999999999){
     budget = float(textfield1.getText());
     budgetset = true;
   }
@@ -69,7 +69,7 @@ public void textfield1_change1(GTextField source, GEvent event) { //_CODE_:textf
 
 public void CheckoutButton(GButton source, GEvent event) { //_CODE_:button2:971666:
   window2.setVisible(true);
-  FinalPrice.setText("Your final price is:"+ "$"+totalPrice);
+  FinalPrice.setText("Your final price is: $"+ nf(totalPrice, 0, 2));
   
 } //_CODE_:button2:971666:
 
@@ -86,7 +86,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  window1 = GWindow.getWindow(this, "Window title", 0, 0, 480, 480, JAVA2D);
+  window1 = GWindow.getWindow(this, "Window title", 0, 0, 480, 380, JAVA2D);
   window1.noLoop();
   window1.setActionOnClose(G4P.KEEP_OPEN);
   window1.addDrawHandler(this, "win_draw1");
@@ -178,7 +178,13 @@ public void createGUI(){
   button2 = new GButton(window1, 166, 79, 80, 30);
   button2.setText("Proceed To Checkout");
   button2.addEventHandler(this, "CheckoutButton");
+  label8 = new GLabel(window1, -11, 4, 495, 20);
+  label8.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label8.setText("REALFRESH GRAPHICUNIVERSEINTERFACE");
+  label8.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  label8.setOpaque(true);
   window2 = GWindow.getWindow(this, "Window title", 0, 0, 240, 120, JAVA2D);
+  window2.setVisible(false);
   window2.noLoop();
   window2.setActionOnClose(G4P.KEEP_OPEN);
   window2.addDrawHandler(this, "win_draw2");
@@ -188,7 +194,6 @@ public void createGUI(){
   FinalPrice.setOpaque(false);
   window1.loop();
   window2.loop();
-   window2.setVisible(false);
 }
 
 // Variable declarations 
@@ -212,5 +217,6 @@ GButton delete;
 GTextField textfield1; 
 GLabel label7; 
 GButton button2; 
+GLabel label8; 
 GWindow window2;
 GLabel FinalPrice; 
