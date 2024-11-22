@@ -147,16 +147,24 @@ void draw() {
   if (isNutritionShowing){
     shelf[hoveredShelf].describe();
   }
+  
+  text("Cart:", 320, 300);
+  int counter = 0;
+  for(Product product: cart){
+    text((product.name +" $"+ product.price), 340, 320 + counter);
+    counter += 20;
+  }
+  
   if(budgetExceeded){
-    text(("This surpasses your budget of $"+ budget), 320, 500);
-    text(("Please select some other product."), 320, 520);
+    text(("This surpasses your budget of $"+ budget), 320, 560);
+    text(("Please select some other product."), 320, 580);
     if (millis() - startTime > 2000){
       budgetExceeded = false;
     }
   }
   if(budgetset){
-    text(("Your budget is: $"+nf(budget, 0, 2)), 320, 400);
-    text(("Your total is: $"+nf(totalPrice, 0, 2)), 320, 420);
+    text(("Your budget is: $"+nf(budget, 0, 2)), 320, 500);
+    text(("Your total is: $"+nf(totalPrice, 0, 2)), 320, 520);
   }
   else{
     text(("Please enter a budget"), 320, 400);
