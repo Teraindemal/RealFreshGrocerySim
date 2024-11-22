@@ -161,6 +161,10 @@ public void createGUI(){
   textfield1 = new GTextField(window1, 81, 53, 58, 30, G4P.SCROLLBARS_NONE);
   textfield1.setOpaque(true);
   textfield1.addEventHandler(this, "textfield1_change1");
+  label7 = new GLabel(window1, 68, 34, 80, 20);
+  label7.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label7.setText("Budget:");
+  label7.setOpaque(false);
   window1.loop();
 }
 
@@ -183,3 +187,4 @@ GButton button1;
 GButton clear; 
 GButton delete; 
 GTextField textfield1; 
+GLabel label7; 
