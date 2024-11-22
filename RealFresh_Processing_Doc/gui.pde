@@ -76,7 +76,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  window1 = GWindow.getWindow(this, "Window title", 0, 0, 480, 480, JAVA2D);
+  window1 = GWindow.getWindow(this, "Window title", 0, 0, 480, 360, JAVA2D);
   window1.noLoop();
   window1.setActionOnClose(G4P.KEEP_OPEN);
   window1.addDrawHandler(this, "win_draw1");
@@ -165,6 +165,11 @@ public void createGUI(){
   label7.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label7.setText("Budget:");
   label7.setOpaque(false);
+  label8 = new GLabel(window1, -3, 2, 482, 20);
+  label8.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label8.setText("REALFRESH GRAPHICALUNIVERSEINTERFACE");
+  label8.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  label8.setOpaque(true);
   window1.loop();
 }
 
@@ -188,3 +193,4 @@ GButton clear;
 GButton delete; 
 GTextField textfield1; 
 GLabel label7; 
+GLabel label8; 
