@@ -30,6 +30,7 @@ void hovered(){
   }
   else{
     isNutritionShowing = false;
+    hoveredShelf = 6;
   }
   
 }
@@ -56,6 +57,8 @@ void mousePressed() {
   else if (isMouseOverImage(800, 500)) {
     selectedShelf = 5;
   }
+  else{
+    selectedShelf = 6;
+  }
   addProduct();
-  listCart();
 }

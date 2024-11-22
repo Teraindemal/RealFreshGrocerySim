@@ -14,6 +14,7 @@ int nfxval = 320;
 int nfyval = 20;
 Boolean budgetset = false;
 Boolean budgetExceeded = false;
+Boolean cartExceeded = false;
 
 ArrayList<Product> products = new ArrayList<Product>();
 ArrayList<Product> filteredproducts = new ArrayList<Product>(0);
@@ -91,10 +92,6 @@ void refresh() {
     filterthis(p);
   }
   stockShelves();
-  //println("These Products Fit Your Requirements:");
-  //for (Product p : filteredproducts) {
-  //  println(p.name);
-  //}
 }
 
 void stockShelves(){
@@ -105,22 +102,16 @@ void stockShelves(){
   }
 }
 void addProduct(){
-  totalPrice+=shelf[selectedShelf].price;
-  if(totalPrice > budget){
-    budgetExceeded = true;
-    totalPrice-=shelf[selectedShelf].price;
+  if(hoveredShelf<6){
+    totalPrice+=shelf[selectedShelf].price;
+    if(totalPrice > budget){
+      budgetExceeded = true;
+      totalPrice-=shelf[selectedShelf].price;
+    }
+    else{
+      cart.add(shelf[selectedShelf]);
+    }
   }
-  else{
-    cart.add(shelf[selectedShelf]);
-  }
-}
-
-void listCart(){
-  println("Your Cart Contains:");
-  for(Product p : cart){
-    println(p.name);
-  }
-  println("Your total is: $"+ nf(totalPrice, 0, 2));
 }
 
 void draw() {
@@ -146,19 +137,38 @@ void draw() {
   if (isNutritionShowing){
     shelf[hoveredShelf].describe();
   }
+  
+  text("Cart:", 320, 300);
+  int counter = 0;
+  if(cartExceeded){
+    text(("+"+(cart.size()-11)+" more"), 340, 540);
+  }
+  for(Product product: cart){
+    if(counter>10){
+      cartExceeded = true;
+    }
+    else{
+      cartExceeded = false;
+      text((product.name +" $"+ nf(product.price, 0, 2)), 340, 320 + 20*counter);
+      counter += 1;
+    } 
+  }
+  
+  if(budgetset){
+    text(("Your budget is: $"+nf(budget, 0, 2)), 320, 560);
+    text(("Your total is: $"+nf(totalPrice, 0, 2)), 320, 580);
+  }
+  else{
+    text(("Please enter a budget"), 320, 280);
+  }
   if(budgetExceeded){
-    text(("This surpasses your budget of $"+ budget), 320, 500);
-    text(("Please select some other product."), 320, 520);
+    fill(255);
+    rect(310, 230, 380, 50);
+    fill(0);
+    text(("This surpasses your budget."), 320, 250);
+    text(("Please select another product."), 320, 270);
     if (millis() - startTime > 2000){
       budgetExceeded = false;
     }
   }
-  if(budgetset){
-    text(("Your budget is: $"+nf(budget, 0, 2)), 320, 400);
-    text(("Your total is: $"+nf(totalPrice, 0, 2)), 320, 420);
-  }
-  else{
-    text(("Please enter a budget"), 320, 400);
-  }
-
 }
