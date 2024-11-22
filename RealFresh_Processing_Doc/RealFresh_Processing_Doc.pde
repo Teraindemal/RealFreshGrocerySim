@@ -1,4 +1,4 @@
-import g4p_controls.*;
+import g4p_controls.*; //importing GUI
 import java.util.ArrayList;
 
 int calorieBenchmark = 400;
@@ -8,6 +8,8 @@ int proteinBenchmark = 0;
 int carbsBenchmark = 100;
 int fatBenchmark = 30;
 float budget = 0;
+float totalPrice = 0;
+
 
 ArrayList<Product> products = new ArrayList<Product>();
 ArrayList<Product> filteredproducts = new ArrayList<Product>(0);
@@ -135,6 +137,8 @@ void draw() {
   text(proteinBenchmark, 500, 40);
   text(carbsBenchmark, 500, 50);
   text(fatBenchmark, 500, 60);
+  text("Your budget is: $"+budget, 500,100);
+  text("Your total is: $"+totalPrice, 500, 20);
 
   imageMode(CENTER);
  
