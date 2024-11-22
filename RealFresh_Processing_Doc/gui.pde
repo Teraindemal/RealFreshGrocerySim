@@ -42,20 +42,30 @@ public void custom_slider5_change1(GCustomSlider source, GEvent event) { //_CODE
  fatBenchmark = Fat.getValueI();
 } //_CODE_:Fat:352962:
 
-public void budgetChanged(GTextField source, GEvent event) {
-  if(float(textField.getText())>0){
-    budget = float(textField.getText());
+public void refreshfilterclicked(GButton source, GEvent event) { //_CODE_:button1:837442:
+  refresh();
+} //_CODE_:button1:837442:
+
+public void clear_cart(GButton source, GEvent event) { //_CODE_:clear:575064:
+  cart.clear();
+  totalPrice = 0;
+  cartExceeded = false;
+} //_CODE_:clear:575064:
+
+public void delete_last(GButton source, GEvent event) { //_CODE_:delete:226592:
+  totalPrice-=cart.get(cart.size()-1).price;
+  cart.remove(cart.size()-1);
+} //_CODE_:delete:226592:
+
+public void textfield1_change1(GTextField source, GEvent event) { //_CODE_:textfield1:636913:
+  if(float(textfield1.getText())>0 && float(textfield1.getText())<9999999){
+    budget = float(textfield1.getText());
     budgetset = true;
   }
   else{
     budgetset = false;
   }
-}
-
-public void refreshfilterclicked(GButton source, GEvent event) { //_CODE_:button1:837442:
-  refresh();
- // textField.setText("");
-} //_CODE_:button1:837442:
+} //_CODE_:textfield1:636913:
 
 
 
@@ -70,8 +80,6 @@ public void createGUI(){
   window1.noLoop();
   window1.setActionOnClose(G4P.KEEP_OPEN);
   window1.addDrawHandler(this, "win_draw1");
-  textField = new GTextField(window1, 78, 74, 60, 20);
-  textField.addEventHandler(this, "budgetChanged");
   calorieBenchmarkSlider = new GCustomSlider(window1, 32, 144, 157, 63, "grey_blue");
   calorieBenchmarkSlider.setShowValue(true);
   calorieBenchmarkSlider.setShowLimits(true);
@@ -115,9 +123,6 @@ public void createGUI(){
   Fat.setNumberFormat(G4P.INTEGER, 0);
   Fat.setOpaque(false);
   Fat.addEventHandler(this, "custom_slider5_change1");
-  label0 = new GLabel(window1, 61, 44, 93, 38);
-  label0.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  label0.setText("Budget");
   label1 = new GLabel(window1, 61, 114, 93, 38);
   label1.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label1.setText("Calories (Max)");
@@ -142,9 +147,20 @@ public void createGUI(){
   label6.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label6.setText("g Fats (Max)");
   label6.setOpaque(false);
-  button1 = new GButton(window1, 47, 246, 124, 63);
-  button1.setText("Refresh Filter");
+  button1 = new GButton(window1, 37, 210, 144, 31);
+  button1.setText("REALFRESH REFRESH");
+  button1.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   button1.addEventHandler(this, "refreshfilterclicked");
+  clear = new GButton(window1, 34, 251, 149, 32);
+  clear.setText("Clear Cart");
+  clear.setLocalColorScheme(GCScheme.RED_SCHEME);
+  clear.addEventHandler(this, "clear_cart");
+  delete = new GButton(window1, 32, 295, 152, 30);
+  delete.setText("Delete Last");
+  delete.addEventHandler(this, "delete_last");
+  textfield1 = new GTextField(window1, 81, 53, 58, 30, G4P.SCROLLBARS_NONE);
+  textfield1.setOpaque(true);
+  textfield1.addEventHandler(this, "textfield1_change1");
   window1.loop();
 }
 
@@ -157,7 +173,6 @@ GCustomSlider Sugar;
 GCustomSlider Protein; 
 GCustomSlider Carbs; 
 GCustomSlider Fat; 
-GLabel label0; 
 GLabel label1; 
 GLabel label2; 
 GLabel label3; 
@@ -165,4 +180,6 @@ GLabel label4;
 GLabel label5; 
 GLabel label6; 
 GButton button1; 
-GTextField textField;
+GButton clear; 
+GButton delete; 
+GTextField textfield1; 

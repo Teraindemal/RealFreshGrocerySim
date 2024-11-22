@@ -92,10 +92,6 @@ void refresh() {
     filterthis(p);
   }
   stockShelves();
-  //println("These Products Fit Your Requirements:");
-  //for (Product p : filteredproducts) {
-  //  println(p.name);
-  //}
 }
 
 void stockShelves(){
@@ -117,14 +113,6 @@ void addProduct(){
     }
   }
 }
-
-//void listCart(){
-//  println("Your Cart Contains:");
-//  for(Product p : cart){
-//    println(p.name);
-//  }
-//  println("Your total is: $"+ nf(totalPrice, 0, 2));
-//}
 
 void draw() {
   background(196, 225, 132);
@@ -161,19 +149,12 @@ void draw() {
       cartExceeded = true;
     }
     else{
+      cartExceeded = false;
       text((product.name +" $"+ nf(product.price, 0, 2)), 340, 320 + 20*counter);
       counter += 1;
-    }
-    
+    } 
   }
   
-  if(budgetExceeded){
-    text(("This surpasses your budget of $"+ budget), 320, 560);
-    text(("Please select some other product."), 320, 580);
-    if (millis() - startTime > 2000){
-      budgetExceeded = false;
-    }
-  }
   if(budgetset){
     text(("Your budget is: $"+nf(budget, 0, 2)), 320, 560);
     text(("Your total is: $"+nf(totalPrice, 0, 2)), 320, 580);
@@ -181,5 +162,14 @@ void draw() {
   else{
     text(("Please enter a budget"), 320, 280);
   }
-
+  if(budgetExceeded){
+    fill(255);
+    rect(310, 230, 380, 50);
+    fill(0);
+    text(("This surpasses your budget."), 320, 250);
+    text(("Please select another product."), 320, 270);
+    if (millis() - startTime > 2000){
+      budgetExceeded = false;
+    }
+  }
 }
