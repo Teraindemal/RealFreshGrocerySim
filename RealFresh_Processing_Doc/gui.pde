@@ -54,7 +54,7 @@ public void budgetChanged(GTextField source, GEvent event) {
 
 public void refreshfilterclicked(GButton source, GEvent event) { //_CODE_:button1:837442:
   refresh();
-  textField.setText("");
+ // textField.setText("");
 } //_CODE_:button1:837442:
 
 

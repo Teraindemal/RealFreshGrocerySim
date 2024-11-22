@@ -14,6 +14,7 @@ int nfxval = 320;
 int nfyval = 20;
 Boolean budgetset = false;
 Boolean budgetExceeded = false;
+Boolean cartExceeded = false;
 
 ArrayList<Product> products = new ArrayList<Product>();
 ArrayList<Product> filteredproducts = new ArrayList<Product>(0);
@@ -150,9 +151,18 @@ void draw() {
   
   text("Cart:", 320, 300);
   int counter = 0;
+  if(cartExceeded){
+    text(("+"+(cart.size()-11)+" more"), 340, 540);
+  }
   for(Product product: cart){
-    text((product.name +" $"+ product.price), 340, 320 + counter);
-    counter += 20;
+    if(counter>10){
+      cartExceeded = true;
+    }
+    else{
+      text((product.name +" $"+ nf(product.price, 0, 2)), 340, 320 + 20*counter);
+      counter += 1;
+    }
+    
   }
   
   if(budgetExceeded){
@@ -163,11 +173,11 @@ void draw() {
     }
   }
   if(budgetset){
-    text(("Your budget is: $"+nf(budget, 0, 2)), 320, 500);
-    text(("Your total is: $"+nf(totalPrice, 0, 2)), 320, 520);
+    text(("Your budget is: $"+nf(budget, 0, 2)), 320, 560);
+    text(("Your total is: $"+nf(totalPrice, 0, 2)), 320, 580);
   }
   else{
-    text(("Please enter a budget"), 320, 400);
+    text(("Please enter a budget"), 320, 280);
   }
 
 }
