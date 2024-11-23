@@ -18,6 +18,7 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:windo
   appc.background(230);
 } //_CODE_:window1:468071:
 
+//Setting new value whenever there is a changein the slider for nutritions (for example: changing the calorie or protein value) 
 public void calorieBenchmarkChanged(GCustomSlider source, GEvent event) { //_CODE_:calorieBenchmarkSlider:402263:
   calorieBenchmark = calorieBenchmarkSlider.getValueI();
 } //_CODE_:calorieBenchmarkSlider:402263:
@@ -42,21 +43,25 @@ public void custom_slider5_change1(GCustomSlider source, GEvent event) { //_CODE
  fatBenchmark = Fat.getValueI();
 } //_CODE_:Fat:352962:
 
+//refreshing the items on screen when the "RealFresh Refresh" button is clicked 
 public void refreshfilterclicked(GButton source, GEvent event) { //_CODE_:button1:837442:
   refresh();
 } //_CODE_:button1:837442:
 
+//clearing the entire cart when the "Clear Cart" button is pressed 
 public void clear_cart(GButton source, GEvent event) { //_CODE_:clear:575064:
   cart.clear();
   totalPrice = 0;
   cartExceeded = false;
 } //_CODE_:clear:575064:
 
+//Deleting last item added in the cart when "Delete Last" is clicked 
 public void delete_last(GButton source, GEvent event) { //_CODE_:delete:226592:
   totalPrice-=cart.get(cart.size()-1).price;
   cart.remove(cart.size()-1);
 } //_CODE_:delete:226592:
 
+//Capturing the changed budget whenever user changes it 
 public void textfield1_change1(GTextField source, GEvent event) { //_CODE_:textfield1:636913:
   if(float(textfield1.getText())>0 && float(textfield1.getText())<999999999){
     budget = float(textfield1.getText());
@@ -66,7 +71,7 @@ public void textfield1_change1(GTextField source, GEvent event) { //_CODE_:textf
     budgetset = false;
   }
 } //_CODE_:textfield1:636913:
-
+//when "Checkout button" is clicked, it shows the checout window and shows the final price 
 public void CheckoutButton(GButton source, GEvent event) { //_CODE_:button2:971666:
   window2.setVisible(true);
   FinalPrice.setText("Your final price is: $"+ nf(totalPrice, 0, 2));

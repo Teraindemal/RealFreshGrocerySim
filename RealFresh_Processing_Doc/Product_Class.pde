@@ -1,4 +1,6 @@
-class Product {
+class Product { //Making Product Class
+ 
+  //Feilds 
   String name;
   float price;
   float calories, sodium, sugar, protein, carbs, fat; 
@@ -6,6 +8,7 @@ class Product {
   int day, month, year;
   //calories:low:40,high:400,moderate:100. sugar,protein,carbs: high:20g,low:5g, moderate:10g. Na: low:0.14g,moderate:0.25g,high:0.4g. fat:low:3g,moderate:5g,high:8g
 
+ //Constructor
   Product(String n, String i, float p, float cal, float Na, float s, float pro, float c, float f, int bbd, int bbm, int bby){
     this.name = n;
     this.image = loadImage(i);
@@ -21,6 +24,8 @@ class Product {
     this.year = bby;
  
   }
+  
+  //describe method which prints all nutritional facts + best before date for any product 
   void describe(){
 
     text((this.name + (" $" +nf(this.price, 0, 2))), nfxval, nfyval+20);

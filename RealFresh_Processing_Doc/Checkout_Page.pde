@@ -1,5 +1,5 @@
 int currentPage = 0;  // 0 = Shopping, 1 = Checkout
-
+//drawing checkout window 
 void drawCheckoutPage() {
   background(255);  
   fill(0);
@@ -10,7 +10,7 @@ void drawCheckoutPage() {
   float totalPrice = 0;
   int yOffset = 60;
   
-  for (Product p : cart) {
+  for (Product p : cart) { //showing the total price for all items in the cart 
     text(p.name + " - $" + p.price, width / 2, yOffset);
     totalPrice += p.price;
     yOffset += 30;

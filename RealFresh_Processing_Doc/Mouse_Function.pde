@@ -1,8 +1,11 @@
+//Initiaizing values
 int selectedShelf;
 int hoveredShelf;
+//Checking if mouse is hovering on the product 
 boolean isMouseOverImage(float x, float y) {
   return mouseX > x - 100 && mouseX < x + 100 && mouseY > y - 100 && mouseY < y + 100;
 }
+// checking which out of all the 6 products on the screen the mouse is over and than showing the details of that product
 void hovered(){
   if (isMouseOverImage(200, 100)) {
     hoveredShelf = 0;
@@ -36,7 +39,7 @@ void hovered(){
 }
 
 
-
+//checking if user has clicked on an item and which of the 6 products has been clicked on
 void mousePressed() {  
   startTime = millis();
   if (isMouseOverImage(200, 100)) {
@@ -60,5 +63,5 @@ void mousePressed() {
   else{
     selectedShelf = 6;
   }
-  addProduct();
+  addProduct(); //calling the addProduct method 
 }
