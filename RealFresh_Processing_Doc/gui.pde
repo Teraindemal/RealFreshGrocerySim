@@ -180,7 +180,7 @@ public void createGUI(){
   label7.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   label7.setText("Budget:");
   label7.setOpaque(false);
-  button2 = new GButton(window1, 166, 79, 80, 30);
+  button2 = new GButton(window1, 30, 339, 156, 30);
   button2.setText("Proceed To Checkout");
   button2.addEventHandler(this, "CheckoutButton");
   label8 = new GLabel(window1, -11, 4, 495, 20);
@@ -189,7 +189,6 @@ public void createGUI(){
   label8.setLocalColorScheme(GCScheme.GREEN_SCHEME);
   label8.setOpaque(true);
   window2 = GWindow.getWindow(this, "Window title", 0, 0, 240, 120, JAVA2D);
-  window2.setVisible(false);
   window2.noLoop();
   window2.setActionOnClose(G4P.KEEP_OPEN);
   window2.addDrawHandler(this, "win_draw2");
@@ -199,6 +198,8 @@ public void createGUI(){
   FinalPrice.setOpaque(false);
   window1.loop();
   window2.loop();
+  
+  window2.setVisible(false);
 }
 
 // Variable declarations 
